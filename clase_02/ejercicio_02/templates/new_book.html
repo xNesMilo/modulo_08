@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Biblioteca</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="/autores">Autores</a>
+                    <a class="nav-link active" aria-current="page" href="/libros">Libros</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"> Titulo del libro </h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> {{ libros.titulo }}  </h6>
+                        <p class="card-text"> {{ libros.descripcion }} </p>
+                    </div>
+                </div>
+                <form action="/libros/{{ libros.id }}" method="post">
+                <select name="select" class="form-select" aria-label="Default select example">
+                    <option selected>Seleccionar autor</option>
+                    {% for autor in autores %}
+                    <option name="mostrando" value="{{ autor.id }}"> {{ autor.nombre }} {{ autor.apellido }} </option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Enviar">
+                </form>
+            </div>
+            <div class="col-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"> Nombre </th>
+                            <th scope="col"> Apellido </th>
+                            <th scope="col"> Titulo </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cosa in mostrar %}
+                        <tr>
+                            <th scope="row"> {{ cosa.nombre }} </th>
+                            <td> {{ cosa.apellido }} </td>
+                            <td> {{ cosa.titulo }} </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "ninja",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "chokidar": "^3.5.3",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "magic": "^2.3.5-alpha.1",
+    "magic.css": "^1.4.8",
+    "nunjucks": "^3.2.3"
+  }
+}

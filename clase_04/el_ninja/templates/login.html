@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ninja Game</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="/magic.css">
+  <link rel="stylesheet" href="/magic.min.css">
+</head>
+<style>
+  body {
+    background-image: url('fondoEstrellas.gif');
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+  }
+  #contenedorImg {
+    margin: 0 auto;     
+  }
+
+  #contenedorFormulario {
+    margin: 0 auto;
+    background-color: rgba(201, 201, 218, 0.308);
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    color: white;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center mt-5 ">
+          <img src="ninja.png"  id="imagenNinja" class="magictime twisterInDown">
+        </div>
+      </div> 
+    </div>  
+    <div class="row mb-2">
+      <div class="col-4 mt-2 magictime" id="contenedorFormulario" hidden>
+        <h3 class="mt-3 text-center">Login</h3>
+        <form method="post" action="/login" >
+          <div class="form-group mt-2">
+            <label for="email" class="mb-3">Email address</label>
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+              placeholder="Enter email">
+            <div class="form-group">
+              <label for="password" class="mt-2">Password</label>
+              <input type="password" class="form-control mt-2" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="text-center"> 
+              <button type="submit" class="btn btn-primary mt-4 mb-4">Login</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const selector = document.querySelector('#imagenNinja')
+    const selectorForm = document.querySelector('#contenedorFormulario')
+
+    function efecto(){
+      selector.classList.remove('twisterInDown')
+      selector.classList.add('openUpLeft')
+    }
+    function efecto2(){
+      selector.classList.remove('openUpLeft')
+      selector.classList.add('openUpLeftReturn')
+      openUpLeftReturn
+    }
+    function efecto3(){
+      selectorForm.removeAttribute('hidden','false')
+      selectorForm.classList.add('swashIn')
+    
+    }
+    setTimeout(efecto,1000)
+    setTimeout(efecto2,2000)
+    setTimeout(efecto3,3000)
+
+  </script>
+</body>

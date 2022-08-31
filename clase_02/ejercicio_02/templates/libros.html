@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Biblioteca</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="/autores">Autores</a>
+                    <a class="nav-link active" aria-current="page" href="/libros">Libros</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">           
+            <div class="col-6">
+                <form action="/libros" method="post">
+                <h2 class="text-center text-danger mb-2">Agrega un autor</h2>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Titulo del libro</label>
+                    <input required name="titulo" type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Ingresa el nombre del autor">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Descripcion del libro</label>
+                    <textarea required name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <button type="submit" class="mt-2">Enviar informacion</button>
+                </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <h2 class="text-center text-danger mb-2">Lista de libros</h2>
+                    <table class="table border border-danger">
+                        <tr>
+                            <td class="col-3"> <h5>ID</h5> </td>
+                            <td class="col-3"> <h5>Titulo</h5> </td>
+                            <td class="col-3"> <h5> Descripcion </h5> </td>
+                        </tr>
+                        {% for libro in libros %}
+                    <tr>
+                        <td class="col-3">{{ libro.id }}</td>
+                        <td class="col-3">{{ libro.titulo }}</td>
+                        <td class="col-3"> <a href="http://localhost:3000/libros/{{ libro.id }}"> Descripcion </a></td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="text-center">Random Word</h1>
+                <h3 class="text-center">{{ random }}</h3>
+                <h1 class="text-center">{{ intentos }}</h1>
+                <a type="button" class="btn btn-danger"  href="http://localhost:3000/">Generar</a>
+                <form action="/reset" method="post" name="reset">
+                    <button type="submit" value="0">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<!-- <script src="/js/bootstrap.min.js"></script> -->
+</html>

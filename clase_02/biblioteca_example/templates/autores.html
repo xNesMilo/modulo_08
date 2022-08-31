@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <nav class="navbar bg-dark text-center">
+			<form class="container-fluid justify-content-start">
+				<button  class="btn btn-outline-success me-2" type="button"><a href="http://localhost:3000/autores" style="text-decoration:none;">Autores</a> </button>
+				<button class="btn btn-sm btn-outline-secondary" type="button"><a href="http://localhost:3000/libros" style="text-decoration:none;">Libros</a></button>
+			</form>
+		</nav>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-6">
+              <h3 class="text-center text-danger"> Agregar Autores</h3>
+              <form action="/autores" method="post">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                    <input type="text" name="nombre" class="form-control" id="exampleFormControlInput1" placeholder="Agrega un nombre">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                  <input type="text" name="apellido" class="form-control" id="exampleFormControlInput1" placeholder="Agrega un apellido">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Note</label>
+                  <textarea class="form-control" name="note" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-outline-success ">Success</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-6">
+              <h3 class="text-center text-success mb-4"> Lista de Autores</h3>
+                <table class="table border border-info">
+                    <thead >
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">link</th>
+                      </tr>
+                    </thead>
+                    <tbody class="autores">
+                      {% for autor in autores %}
+                      <tr>
+                        <td class="col-3">{{ autor.id }}</td>
+                        <td class="col-3">{{ autor.nombre }}</td>
+                        <td class="col-3">{{ autor.apellido }}</td>
+                        <td class="col-3"><button onclick="alert('{{ autor.nota }}')"> view</button></td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  
+            </div>
+        </div>
+    </div>
+      <script src="./js/bootstrap.min.css"></script>
+      <script src="./js/axios.min.js"></script>
+      
+</body>
+</html>
